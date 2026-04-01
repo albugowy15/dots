@@ -1,4 +1,4 @@
-# Dotfiles
+# Dots
 
 ## 📋 Overview
 
@@ -32,13 +32,13 @@ sudo pacman -S stow git
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/albugowy15/dotfiles.git ~/dotfiles
+   git clone https://github.com/albugowy15/dots.git ~/dots
    ```
 
 2. **Navigate to the Dotfiles Directory**
 
    ```bash
-   cd ~/dotfiles
+   cd ~/dots
    ```
 
 3. **Create Symlinks Using Stow**
@@ -62,177 +62,21 @@ sudo pacman -S stow git
 
    Some configurations may require restarting applications or logging out and back in to take effect.
 
-## 🧩 Configuration Details
-
-<details>
-<summary><b>Hyprland</b></summary>
-
-My Hyprland setup includes:
-
-- Custom keybindings for efficient window management
-- Optimized workspace layouts
-- Integrated with waybar for system status
-- Animations and visual effects for a modern desktop experience
-
-File location: `~/.config/hypr/`
-
-</details>
-
-<details>
-<summary><b>Neovim</b></summary>
-
-Features of my Neovim configuration:
-
-- Modern LSP setup for code intelligence
-- Treesitter for enhanced syntax highlighting
-- Telescope for fuzzy finding
-- Custom keymaps for improved workflow
-- Plugin management with lazy.nvim
-
-File location: `~/.config/nvim/`
-
-</details>
-
-<details>
-<summary><b>Alacritty</b></summary>
-
-Terminal configuration featuring:
-
-- Custom color scheme
-- Font configuration with ligatures
-- Performance optimizations
-- Key bindings for common operations
-
-File location: `~/.config/alacritty/`
-
-</details>
-
-<details>
-<summary><b>tmux</b></summary>
-
-Terminal multiplexer setup with:
-
-- Custom status bar
-- Enhanced key bindings
-- Session management utilities
-- Integration with system clipboard
-
-File location: `~/.tmux.conf`
-
-</details>
-
-<details>
-<summary><b>zsh</b></summary>
-
-Shell configuration featuring:
-
-- Custom prompt with git integration
-- Aliases for common commands
-- Plugin management
-- Path and environment variable setup
-
-File location: `~/.zshrc`
-
-</details>
-
-<details>
-<summary><b>Waybar</b></summary>
-
-Status bar configuration with:
-
-- System resource monitors
-- Workspace indicators
-- Media controls
-- Custom styling and modules
-
-File location: `~/.config/waybar/`
-
-</details>
-
 ## 🔧 Customization
 
 These dotfiles are designed to be easily customizable to suit your preferences:
 
 1. **Before Making Changes**
-
    - Create backups of your existing configurations
    - Review the structure of each configuration directory
 
 2. **Making Changes**
-
-   - Modify files directly in the `~/dotfiles` directory
+   - Modify files directly in the `~/dots` directory
    - Test changes incrementally to ensure stability
 
 3. **After Making Changes**
    - Restart the relevant application or reload its configuration
    - For system-wide changes, consider logging out and back in
-
-## 🔄 Updating
-
-Keep your dotfiles up to date with these steps:
-
-```bash
-cd ~/dotfiles
-git pull origin main
-stow .  # Re-apply configurations
-```
-
-## 🗂️ Directory Structure
-
-```
-dotfiles/
-├── hyprland/
-│   └── .config/hypr/
-│       ├── hyprland.conf
-│       └── ...
-├── nvim/
-│   └── .config/nvim/
-│       ├── init.lua
-│       └── ...
-├── alacritty/
-│   └── .config/alacritty/
-│       ├── alacritty.yml
-│       └── ...
-├── zsh/
-│   ├── .zshrc
-│   └── .config/zsh/
-├── tmux/
-│   └── .tmux.conf
-├── waybar/
-│   └── .config/waybar/
-│       ├── config
-│       └── ...
-└── ...
-```
-
-## 🔗 Dependencies
-
-<details>
-<summary>Click to view dependencies for each configuration</summary>
-
-### Hyprland
-
-- wlroots
-- xdg-desktop-portal-hyprland
-
-### Neovim
-
-- nodejs (for LSP)
-- ripgrep (for Telescope)
-- fd (for Telescope)
-
-### Waybar
-
-- Font Awesome (for icons)
-- pavucontrol (for audio module)
-
-### Additional Tools
-
-- wofi (application launcher)
-- hyprlock (screen locking)
-- brightnessctl (brightness control)
-- playerctl (media control)
-</details>
 
 ## 📝 Notes
 
