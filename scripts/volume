@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# Usage: volume.sh [up|down|mute|micmute]
+
+case $1 in
+    up)
+        wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+        ;;
+    down)
+        wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+        ;;
+    mute)
+        wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+        ;;
+    micmute)
+        wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+        ;;
+esac
+
+# Get Volume and Mute status
+VOLUME_INFO=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+VOLUME=$(echo "$VOLUME_INFO" | awk '{print int($2 * 100)}')
+MUTE=$(echo "$VOLUME_INFO" | grep -o "\[MUTED\]")
+
+if [ "$1" == "micmute" ]; then
+    MIC_MUTE=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -o "\[MUTED\]")
+    if [ -n "$MIC_MUTE" ]; then
+        notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "Microphone Muted"
+    else
+        notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "Microphone Unmuted"
+    fi
+    exit 0
+fi
+
+if [ -n "$MUTE" ]; then
+    notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "Muted"
+else
+    notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -h int:value:"$VOLUME" "Volume: $VOLUME%" 
+fi

@@ -1,0 +1,18 @@
+[general]
+import = ["~/.config/alacritty/vague.toml"]
+
+[window]
+# decorations = "none"
+decorations_theme_variant = "Dark"
+padding.x = 5
+padding.y = 5
+
+[font]
+size = 9
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
+
+[mouse]
+hide_when_typing = true
