@@ -1,9 +1,5 @@
 return {
   {
-    "mason-org/mason.nvim",
-    opts = {},
-  },
-  {
     "mason-org/mason-lspconfig.nvim",
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
@@ -29,11 +25,8 @@ return {
     opts = {
       library = {
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        { path = "lazy.nvim", words = { "LazyVim" } },
+        { path = "lazy.nvim",          words = { "LazyVim" } },
       },
     },
-  },
-  {
-    "neovim/nvim-lspconfig",
   },
 }

@@ -43,15 +43,6 @@ vim.lsp.config("vtsls", {
         },
       },
     },
-    tsserver = {
-      globalPlugins = {
-        {
-          name = "@astrojs/ts-plugin",
-          location = "~/.local/share/nvim/mason/packages/astro-language-server/node_modules/@astrojs/language-server",
-          enableForWorkspaceTypeScriptVersions = true,
-        },
-      },
-    },
   },
 })
 
@@ -104,10 +95,10 @@ vim.lsp.config("yamlls", {
   },
 })
 
-vim.lsp.config("astro", {
-  filetypes = { "astro" },
-  -- root_markers = { "astro.config.js", "astro.config.mjs", "astro.config.cjs", "astro.config.ts" },
-})
+-- vim.lsp.config("astro", {
+--   filetypes = { "astro" },
+--   root_markers = { "astro.config.js", "astro.config.mjs", "astro.config.cjs", "astro.config.ts" },
+-- })
 
 vim.lsp.config("gopls", {
   settings = {
@@ -254,6 +245,9 @@ vim.lsp.config("jdtls", {
 
 vim.lsp.config("tsgo", {
   filetypes = {
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
     "typescript",
     "typescriptreact",
     "typescript.tsx",
@@ -263,18 +257,18 @@ vim.lsp.config("tsgo", {
 vim.lsp.enable({
   "astro",
   "bashls",
-  "denols",
+  -- "denols",
   "dockerls",
   "eslint",
   "gopls",
-  "jsonls",
-  "lemminx",
+  -- "jsonls",
+  -- "lemminx",
   "lua_ls",
   "rust_analyzer",
   "tailwindcss",
   "taplo",
-  -- "tsgo",
-  "vtsls",
+  "tsgo",
+  -- "vtsls",
   "yamlls",
   -- "biome",
   "clangd",

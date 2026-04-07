@@ -2,3 +2,11 @@
 .config/zen
 .config/dconf
 .config/assets
+.config/discord
+.config/environment.d
+.config/go
+.config/mimeapps.list
+.config/qalculate
+.config/systemd
+.config/user-dirs.dirs
+.config/user-dirs.locale

@@ -22,7 +22,6 @@ return {
       -- ghost_text = { enabled = false },
     },
     sources = {
-      -- default = { "lazydev", "lsp", "path", "buffer", "copilot" },
       default = { "lazydev", "lsp", "path", "buffer" },
       providers = {
         lazydev = {
@@ -46,5 +45,4 @@ return {
       preset = "enter",
     },
   },
-  opts_extend = { "sources.default" },
 }

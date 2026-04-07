@@ -2,16 +2,6 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("owivim_" .. name, { clear = true })
 end
 
--- Check if we need to reload the file when it changed
-vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  group = augroup("checktime"),
-  callback = function()
-    if vim.o.buftype ~= "nofile" then
-      vim.cmd("checktime")
-    end
-  end,
-})
-
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = augroup("highlight_yank"),
@@ -86,5 +76,19 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.treesitter.start()
     -- indentation, provided by nvim-treesitter
     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})
+
+vim.api.nvim_create_autocmd('LspProgress', {
+  callback = function(ev)
+    local value = ev.data.params.value
+    vim.api.nvim_echo({ { value.message or 'done' } }, false, {
+      id = 'lsp.' .. ev.data.params.token,
+      kind = 'progress',
+      source = 'vim.lsp',
+      title = value.title,
+      status = value.kind ~= 'end' and 'running' or 'success',
+      percent = value.percentage,
+    })
   end,
 })
