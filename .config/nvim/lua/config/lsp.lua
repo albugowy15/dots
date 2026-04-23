@@ -244,25 +244,36 @@ vim.lsp.config("jdtls", {
 })
 
 vim.lsp.config("tsgo", {
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
+  settings = {
+    typescript = {
+      inlayHints = {
+        parameterNames = { enabled = false },
+        parameterTypes = { enabled = false },
+        variableTypes = { enabled = false },
+        propertyDeclarationTypes = { enabled = false },
+        functionLikeReturnTypes = { enabled = false },
+        enumMemberValues = { enabled = false },
+      },
+      format = { enable = false },
+      tsserver = {
+        maxTsServerMemory = 6144,
+        useSeparateSyntaxServer = false,
+        useSyntaxServer = "never",
+      },
+      preferences = {
+        includePackageJsonAutoImports = "off",
+        includeCompletionsForModuleExports = false,
+        updateImportsOnPaste = "off",
+      },
+    },
   },
 })
 
 vim.lsp.enable({
   "astro",
   "bashls",
-  -- "denols",
   "dockerls",
-  "eslint",
   "gopls",
-  -- "jsonls",
-  -- "lemminx",
   "lua_ls",
   "rust_analyzer",
   "tailwindcss",
@@ -270,8 +281,4 @@ vim.lsp.enable({
   "tsgo",
   -- "vtsls",
   "yamlls",
-  -- "biome",
-  "clangd",
-  -- "jdtls",
-  -- "lemminx",
 })

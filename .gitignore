@@ -10,3 +10,9 @@
 .config/systemd
 .config/user-dirs.dirs
 .config/user-dirs.locale
+.config/QtProject.conf
+.config/astro
+.config/google-chrome
+.config/lact
+.config/obs-studio
+.config/obsidian
