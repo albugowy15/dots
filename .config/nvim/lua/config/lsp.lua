@@ -272,7 +272,8 @@ vim.lsp.config("tsgo", {
 vim.lsp.enable({
   "astro",
   "bashls",
-  "dockerls",
+  "docker_language_server",
+  "docker_compose_language_service",
   "gopls",
   "lua_ls",
   "rust_analyzer",

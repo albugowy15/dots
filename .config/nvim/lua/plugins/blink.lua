@@ -12,17 +12,17 @@ return {
     completion = {
       accept = {
         auto_brackets = {
-          enabled = false,
+          enabled = true,
         },
       },
       menu = {
         border = "rounded",
       },
       -- documentation = { auto_show = false },
-      -- ghost_text = { enabled = false },
+      -- ghost_text = { enabled = true },
     },
     sources = {
-      default = { "lazydev", "lsp", "path", "buffer" },
+      default = { "lazydev", "lsp", "buffer" },
       providers = {
         lazydev = {
           name = "LazyDev",
@@ -37,9 +37,6 @@ return {
         --   async = true,
         -- },
       },
-    },
-    cmdline = {
-      enabled = false,
     },
     keymap = {
       preset = "enter",

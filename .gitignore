@@ -16,3 +16,10 @@
 .config/lact
 .config/obs-studio
 .config/obsidian
+.config/kdfrc
+.config/nextjs-nodejs
+.config/spotify
+.config/tanstack
+.config/turborepo
+.config/zed
+.local/bin/zed
