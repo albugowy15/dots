@@ -11,6 +11,7 @@ zstyle ':omz:plugins:eza' 'header' yes
 zstyle ':omz:plugins:eza' 'icons' yes
 zstyle ':omz:plugins:eza' 'hyperlink' yes
 zstyle ':omz:plugins:nvm' 'lazy' yes
+zstyle ':omz:plugins:nvm' lazy-cmd eslint prettier typescript gemini npm
 
 plugins=(
   eza
@@ -44,9 +45,9 @@ esac
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 
-# opencode
-# export PATH="$HOME/.opencode/bin:$PATH"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"

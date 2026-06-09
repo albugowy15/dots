@@ -18,7 +18,7 @@
 
 {
     "label" : "shutdown",
-    "action" : "hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl poweroff'",
+    "action" : "systemctl poweroff",
     "text" : "Shutdown"
 }
 
@@ -30,6 +30,6 @@
 
 {
     "label" : "reboot",
-    "action" : "hyprshutdown -t 'Restarting...' --post-cmd 'systemctl reboot'",
+    "action" : "systemctl reboot",
     "text" : "Reboot"
 }

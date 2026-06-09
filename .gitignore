@@ -23,3 +23,7 @@
 .config/turborepo
 .config/zed
 .local/bin/zed
+.config/com.cisco.secureclient.vpnui
+.config/menus
+.config/opencode
+.config/pavucontrol.ini
