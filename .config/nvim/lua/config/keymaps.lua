@@ -49,3 +49,15 @@ vim.keymap.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+-- If we need to reference filepath in antigravity cli
+vim.keymap.set('n', '<leader>cp', function()
+  local path = vim.fn.expand('%:p')
+  vim.fn.setreg('+', path)
+  vim.notify('Copied: ' .. path)
+end, { desc = 'Copy filepath to clipboard' })
+
+vim.keymap.set('n', '<leader>ya', function()
+  vim.cmd('%y+')
+  vim.notify('Copied entire file to clipboard')
+end, { desc = "Yant entire file to clipboard" })

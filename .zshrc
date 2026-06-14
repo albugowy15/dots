@@ -51,3 +51,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # opencode
 export PATH="$HOME/.opencode/bin:$PATH"
+
+
+# Antigravity CLI
+export PATH="$HOME/.local/bin:$PATH"
