@@ -44,6 +44,7 @@ hl.workspace_rule({ workspace = "7", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "8", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "9", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "10", monitor = "eDP-1", default = true })
+hl.workspace_rule({ workspace = "name:gaming", monitor = "HDMI-A-1" })
 
 ----------------------
 --- CONFIGURATION ---
@@ -167,6 +168,8 @@ for i = 1, 10 do
   hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = i }))
   hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
+hl.bind("SUPER + P", hl.dsp.focus({ workspace = "name:gaming" }))
+hl.bind("SUPER + SHIFT + P", hl.dsp.window.move({ workspace = "name:gaming" }))
 
 -- Actions
 hl.bind("SUPER + W", hl.dsp.exec_cmd("hyprlauncher"))
@@ -197,6 +200,11 @@ hl.bind("XF86Calculator", hl.dsp.exec_cmd("uwsm app -- qalculate-gtk"))
 --------------------
 --- WINDOW RULES ---
 --------------------
+hl.window_rule({
+  match = { workspace = "name:gaming" },
+  float = true,
+})
+
 hl.window_rule({
   -- Ignore maximize requests from all apps. You'll probably like this.
   name           = "suppress-maximize-events",
