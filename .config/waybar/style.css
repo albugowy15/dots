@@ -31,7 +31,8 @@
 #bluetooth,
 #power-profiles-daemon,
 #custom-power,
-#pulseaudio {
+#pulseaudio,
+#idle_inhibitor {
   min-width: 12px;
   margin: 0 10px;
 }

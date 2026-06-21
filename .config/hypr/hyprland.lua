@@ -38,13 +38,12 @@ hl.workspace_rule({ workspace = "3", monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = "4", monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = "5", monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = "name:gaming", monitor = "HDMI-A-1" })
 
 hl.workspace_rule({ workspace = "6", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "7", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "8", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "9", monitor = "eDP-1" })
-hl.workspace_rule({ workspace = "10", monitor = "eDP-1", default = true })
-hl.workspace_rule({ workspace = "name:gaming", monitor = "HDMI-A-1" })
 
 ----------------------
 --- CONFIGURATION ---
@@ -163,13 +162,12 @@ hl.bind("SUPER + SHIFT + J", hl.dsp.window.move({ direction = "d", group_aware =
 
 -- Workspaces
 hl.bind("SUPER + TAB", hl.dsp.focus({ workspace = "previous" }))
-for i = 1, 10 do
-  local key = i % 10
-  hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = i }))
-  hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+for i = 1, 9 do
+  hl.bind("SUPER + " .. i, hl.dsp.focus({ workspace = i }))
+  hl.bind("SUPER + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
-hl.bind("SUPER + P", hl.dsp.focus({ workspace = "name:gaming" }))
-hl.bind("SUPER + SHIFT + P", hl.dsp.window.move({ workspace = "name:gaming" }))
+hl.bind("SUPER + 0", hl.dsp.focus({ workspace = "name:gaming" }))
+hl.bind("SUPER + SHIFT + 0", hl.dsp.window.move({ workspace = "name:gaming" }))
 
 -- Actions
 hl.bind("SUPER + W", hl.dsp.exec_cmd("hyprlauncher"))

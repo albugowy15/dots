@@ -11,7 +11,7 @@ zstyle ':omz:plugins:eza' 'header' yes
 zstyle ':omz:plugins:eza' 'icons' yes
 zstyle ':omz:plugins:eza' 'hyperlink' yes
 zstyle ':omz:plugins:nvm' 'lazy' yes
-zstyle ':omz:plugins:nvm' lazy-cmd eslint prettier typescript gemini npm
+zstyle ':omz:plugins:nvm' lazy-cmd eslint prettier gemini npm vim
 
 plugins=(
   eza
@@ -51,7 +51,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # opencode
 export PATH="$HOME/.opencode/bin:$PATH"
-
 
 # Antigravity CLI
 export PATH="$HOME/.local/bin:$PATH"

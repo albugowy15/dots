@@ -19,6 +19,7 @@
     "group/tray-expander",
     "bluetooth",
     "network",
+    "idle_inhibitor",
     "pulseaudio",
     "power-profiles-daemon",
     "battery",
@@ -169,5 +170,12 @@
     "on-click": "wlogout",
     "format": "  Power",
     "tooltip": false
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
   }
 }
