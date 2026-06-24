@@ -10,8 +10,8 @@ zstyle ':omz:plugins:eza' 'git-status' yes
 zstyle ':omz:plugins:eza' 'header' yes
 zstyle ':omz:plugins:eza' 'icons' yes
 zstyle ':omz:plugins:eza' 'hyperlink' yes
-zstyle ':omz:plugins:nvm' 'lazy' yes
-zstyle ':omz:plugins:nvm' lazy-cmd eslint prettier gemini npm vim
+# zstyle ':omz:plugins:nvm' 'lazy' yes
+# zstyle ':omz:plugins:nvm' lazy-cmd eslint prettier codex gemini npm vim
 
 plugins=(
   eza

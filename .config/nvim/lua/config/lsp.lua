@@ -281,5 +281,6 @@ vim.lsp.enable({
   "taplo",
   "tsgo",
   -- "vtsls",
+  "lemminx",
   "yamlls",
 })

@@ -27,3 +27,5 @@
 .config/opencode
 .config/pavucontrol.ini
 .local
+.config/Postman
+.config/configstore

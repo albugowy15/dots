@@ -47,7 +47,6 @@ return {
       typescriptreact = { "prettier", stop_after_first = true },
       yaml = { "prettier" },
       sh = { "shfmt" },
-      xml = { "lemminx" },
       toml = { "taplo" },
     },
     format_after_save = {

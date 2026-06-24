@@ -178,11 +178,17 @@ hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m region"))
 
 -- Fn keys
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("~/scripts/volume up"), { repeating = true, locked = true })
+hl.bind("F3", hl.dsp.exec_cmd("~/scripts/volume up"), { repeating = true, locked = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("~/scripts/volume down"), { repeating = true, locked = true })
+hl.bind("F2", hl.dsp.exec_cmd("~/scripts/volume down"), { repeating = true, locked = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("~/scripts/volume mute"), { repeating = true, locked = true })
+hl.bind("F1", hl.dsp.exec_cmd("~/scripts/volume mute"), { repeating = true, locked = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("~/scripts/volume micmute"), { repeating = true, locked = true })
+hl.bind("F9", hl.dsp.exec_cmd("~/scripts/volume micmute"), { repeating = true, locked = true })
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("~/scripts/brightness up"), { repeating = true, locked = true })
+hl.bind("F6", hl.dsp.exec_cmd("~/scripts/brightness up"), { repeating = true, locked = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("~/scripts/brightness down"), { repeating = true, locked = true })
+hl.bind("F5", hl.dsp.exec_cmd("~/scripts/brightness down"), { repeating = true, locked = true })
 
 -- Copilot key
 hl.bind("SUPER + SHIFT + code:201", hl.dsp.exec_cmd("uwsm app -- google-chrome-stable --app=https://claude.ai"))
