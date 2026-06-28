@@ -69,7 +69,8 @@ vim.api.nvim_create_autocmd("FileType", {
     "typescript",
     "typescriptreact",
     "markdown",
-    "md",
+    "xml",
+    "toml",
   },
   callback = function()
     -- syntax highlighting, provided by Neovim

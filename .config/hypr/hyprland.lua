@@ -59,12 +59,14 @@ hl.config({
       window_gap = 4,
       monitor_gap = 5,
       respect_gaps = true
-    }
+    },
+    layout = "dwindle"
   },
   dwindle = {
-    preserve_split = true,
-    smart_split = false,
-    smart_resizing = false
+    preserve_split = true
+  },
+  master = {
+    new_status = "master"
   },
   decoration = {
     rounding = 0,
@@ -98,10 +100,9 @@ hl.config({
     ["col.border_active"] = "rgb(36c692)"
   },
   misc = {
-    background_color = "rgba(1D1011FF)",
     disable_hyprland_logo = true,
     disable_splash_rendering = true,
-    focus_on_activate = false,
+    focus_on_activate = true,
     font_family = "JetBrainsMono Nerd Font",
     force_default_wallpaper = 0,
     key_press_enables_dpms = true,
@@ -110,7 +111,7 @@ hl.config({
   binds = {
     workspace_back_and_forth = true,
     allow_workspace_cycles = true,
-    pass_mouse_when_bound = false
+    -- pass_mouse_when_bound = false
   },
   ecosystem = {
     no_update_news = true,
@@ -172,7 +173,7 @@ hl.bind("SUPER + SHIFT + 0", hl.dsp.window.move({ workspace = "name:gaming" }))
 -- Actions
 hl.bind("SUPER + W", hl.dsp.exec_cmd("hyprlauncher"))
 hl.bind("SUPER + CTRL + Q", hl.dsp.exec_cmd("wlogout"))
-hl.bind("SUPER + PRINT", hl.dsp.exec_cmd("hyprshot -m window -m active"))
+-- hl.bind("SUPER + PRINT", hl.dsp.exec_cmd("hyprshot -m window -m active"))
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m output -m active"))
 hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m region"))
 

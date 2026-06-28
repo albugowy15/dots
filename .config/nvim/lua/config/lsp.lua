@@ -213,12 +213,17 @@ vim.lsp.config("clangd", {
 })
 
 vim.lsp.config("tailwindcss", {
+  filetypes = {
+    "astro", "html", "css", "postcss", "sass", "scss",
+    "javascript", "javascriptreact", "typescript", "typescriptreact",
+    "svelte",
+  },
   settings = {
     tailwindCSS = {
+      validate = false,
       classAttributes = { "class", "className", "rootClassName", "class:list" },
       classFunctions = { "clsx", "cn" },
       completion = false,
-      validate = false,
       colorDecorators = false,
       codeActions = false,
       hovers = true,
