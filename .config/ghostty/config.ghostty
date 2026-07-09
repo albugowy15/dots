@@ -1,0 +1,13 @@
+font-family = "JetBrainsMono Nerd Font"
+font-size = 9
+theme = Vague
+cursor-style = block
+mouse-hide-while-typing = true
+window-decoration = none
+clipboard-read = allow
+clipboard-write = allow
+confirm-close-surface = false
+shell-integration-features = no-cursor
+copy-on-select = false
+window-padding-x = 5
+window-padding-y = 0
