@@ -285,7 +285,6 @@ vim.lsp.enable({
   "tailwindcss",
   "taplo",
   "tsgo",
-  -- "vtsls",
   "lemminx",
   "yamlls",
 })
