@@ -133,7 +133,7 @@ hl.device({
 --- KEYBINDINGS ---
 --------------------
 -- Applications
-hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("uwsm app -- ghostty"))
+hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("uwsm app -- alacritty"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("uwsm app -- nautilus"))
 hl.bind("SUPER + B", hl.dsp.exec_cmd("uwsm app -- zen-browser"))
 hl.bind("SUPER + C", hl.dsp.exec_cmd("uwsm app -- /opt/cisco/secureclient/bin/vpnui"))
