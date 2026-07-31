@@ -48,11 +48,14 @@ vim.lsp.config("vtsls", {
 
 vim.lsp.config("eslint", {
   settings = {
-    codeActionOnSave = {
-      enable = false,
-      mode = "problems",
+    experimental = {
+      -- If you want to use flat config on >= 8.21, < 9.0
+      useFlatConfig = true,
+      -- Or if you want to use eslintrc on 9.*
+      -- useFlatConfig = false,
     },
     format = false,
+    run = "onSave",
   },
 })
 
@@ -94,11 +97,6 @@ vim.lsp.config("yamlls", {
     },
   },
 })
-
--- vim.lsp.config("astro", {
---   filetypes = { "astro" },
---   root_markers = { "astro.config.js", "astro.config.mjs", "astro.config.cjs", "astro.config.ts" },
--- })
 
 vim.lsp.config("gopls", {
   settings = {
@@ -248,31 +246,29 @@ vim.lsp.config("jdtls", {
   },
 })
 
-vim.lsp.config("tsgo", {
-  settings = {
-    typescript = {
-      inlayHints = {
-        parameterNames = { enabled = false },
-        parameterTypes = { enabled = false },
-        variableTypes = { enabled = false },
-        propertyDeclarationTypes = { enabled = false },
-        functionLikeReturnTypes = { enabled = false },
-        enumMemberValues = { enabled = false },
-      },
-      format = { enable = false },
-      tsserver = {
-        maxTsServerMemory = 6144,
-        useSeparateSyntaxServer = false,
-        useSyntaxServer = "never",
-      },
-      preferences = {
-        includePackageJsonAutoImports = "off",
-        includeCompletionsForModuleExports = false,
-        updateImportsOnPaste = "off",
-      },
-    },
-  },
-})
+-- vim.lsp.config("tsgo", {
+--   settings = {
+--     typescript = {
+--       inlayHints = {
+--         parameterNames = { enabled = false },
+--         parameterTypes = { enabled = false },
+--         variableTypes = { enabled = false },
+--         propertyDeclarationTypes = { enabled = false },
+--         functionLikeReturnTypes = { enabled = false },
+--         enumMemberValues = { enabled = false },
+--       },
+--       format = { enable = false },
+--       tsserver = {
+--         maxTsServerMemory = 6144,
+--         useSeparateSyntaxServer = false,
+--         useSyntaxServer = "never",
+--       },
+--       preferences = {
+--         includePackageJsonAutoImports = "off",
+--       },
+--     },
+--   },
+-- })
 
 vim.lsp.enable({
   "astro",
@@ -285,6 +281,7 @@ vim.lsp.enable({
   "tailwindcss",
   "taplo",
   "tsgo",
+  "eslint",
   "lemminx",
   "yamlls",
 })

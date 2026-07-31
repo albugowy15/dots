@@ -14,7 +14,6 @@ hl.monitor({
   -- mode = "2560x1440@120",
   mode = "highrr",
   position = "auto",
-  cm = "dcip3",
   scale = 1,
 })
 
@@ -104,12 +103,12 @@ hl.config({
   },
   misc = {
     disable_hyprland_logo = true,
-    disable_splash_rendering = true,
+    -- disable_splash_rendering = true,
     focus_on_activate = true,
     font_family = "JetBrainsMono Nerd Font",
     force_default_wallpaper = 0,
-    key_press_enables_dpms = true,
-    disable_autoreload = true
+    disable_autoreload = true,
+    allow_session_lock_restore = true
   },
   binds = {
     workspace_back_and_forth = true,
@@ -135,7 +134,7 @@ hl.device({
 -- Applications
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("uwsm app -- alacritty"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("uwsm app -- nautilus"))
-hl.bind("SUPER + B", hl.dsp.exec_cmd("uwsm app -- zen-browser"))
+hl.bind("SUPER + B", hl.dsp.exec_cmd("uwsm app -- firefox"))
 hl.bind("SUPER + C", hl.dsp.exec_cmd("uwsm app -- /opt/cisco/secureclient/bin/vpnui"))
 
 -- Windows

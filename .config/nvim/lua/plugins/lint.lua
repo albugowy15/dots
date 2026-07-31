@@ -1,13 +1,14 @@
 return {
   "mfussenegger/nvim-lint",
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+  enabled = false,
   version = "*",
   config = function()
     local lint = require("lint")
     lint.linters_by_ft = {
       astro = { "eslint" },
       dockerfile = { "hadolint" },
-      javascript = { "eslint" },
+      -- javascript = { "eslint" },
       javascriptreact = { "eslint" },
       svelte = { "eslint" },
       typescript = { "eslint" },
