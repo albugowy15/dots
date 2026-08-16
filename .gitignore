@@ -32,3 +32,13 @@
 .local/bin/agy
 .local/bin/codex
 .local/bin/zed
+.config/.android
+.config/Android Open Source Project
+.config/Bitwarden CLI
+.config/Bitwarden
+.config/Google
+.config/QtProject
+.config/herdr
+.config/mozilla
+.config/vlc
+.local/bin/herdr

@@ -1,5 +1,5 @@
-@define-color foreground #cdcdcd;
-@define-color background #141415;
+@define-color background #101010;
+@define-color foreground #B8FFF0;
 
 * {
   background-color: @background;
@@ -19,7 +19,6 @@
   min-width: 9px;
   opacity: 0.5;
 }
-
 
 #workspaces button.active {
   opacity: 1;

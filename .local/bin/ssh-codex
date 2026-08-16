@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $# -eq 0 ]]; then
+  printf 'Usage: %s [ssh options] destination\n' "${0##*/}" >&2
+  exit 2
+fi
+
+exec ssh -t "$@" 'tmux new-session -A -s codex'
