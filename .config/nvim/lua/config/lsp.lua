@@ -50,7 +50,7 @@ vim.lsp.config("eslint", {
   settings = {
     experimental = {
       -- If you want to use flat config on >= 8.21, < 9.0
-      useFlatConfig = true,
+      -- useFlatConfig = true,
       -- Or if you want to use eslintrc on 9.*
       -- useFlatConfig = false,
     },
@@ -246,7 +246,7 @@ vim.lsp.config("jdtls", {
   },
 })
 
--- vim.lsp.config("tsgo", {
+-- vim.lsp.config("tsc", {
 --   settings = {
 --     typescript = {
 --       inlayHints = {
@@ -270,17 +270,54 @@ vim.lsp.config("jdtls", {
 --   },
 -- })
 
+vim.lsp.config("tsc", {
+  settings = {
+    ["js/ts"] = {
+      implementationsCodeLens = {
+        enabled = false,
+      },
+      format = { enable = false },
+      preferences = {
+        includePackageJsonAutoImports = "off",
+      },
+      inlayHints = {
+        enumMemberValues = {
+          enabled = false
+        },
+        functionLikeReturnTypes = {
+          enabled = false
+        },
+        parameterNames = {
+          enabled = false,
+        },
+        parameterTypes = {
+          enabled = false
+        },
+        propertyDeclarationTypes = {
+          enabled = false
+        },
+        variableTypes = {
+          enabled = false
+        }
+      },
+      referencesCodeLens = {
+        enabled = false,
+      }
+    }
+  }
+})
+
 vim.lsp.enable({
   "astro",
   "bashls",
-  "docker_language_server",
-  "docker_compose_language_service",
+  -- "docker_language_server",
+  -- "docker_compose_language_service",
   "gopls",
   "lua_ls",
   "rust_analyzer",
   "tailwindcss",
   "taplo",
-  -- "tsgo",
+  -- "tsc",
   "vtsls",
   "eslint",
   "lemminx",

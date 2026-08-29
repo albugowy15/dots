@@ -1,14 +1,13 @@
 return {
   "saghen/blink.cmp",
-  -- dependencies = { "fang2hou/blink-copilot" },
   version = "*",
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
-    appearance = {
-      nerd_font_variant = "mono",
-    },
+    -- appearance = {
+    --   nerd_font_variant = "mono",
+    -- },
     completion = {
       menu = {
         border = "rounded",

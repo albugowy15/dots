@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/vesper.toml"]
+import = ["~/.config/alacritty/vague.toml"]
 
 [window]
 # decorations = "none"

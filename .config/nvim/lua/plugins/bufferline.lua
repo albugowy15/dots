@@ -12,7 +12,6 @@ return {
   config = function()
     local bufferline = require("bufferline")
     bufferline.setup({
-      highlights = require("vesper").bufferline.highlights,
       options = {
         mode = "buffers",
         style_preset = bufferline.style_preset.minimal,
