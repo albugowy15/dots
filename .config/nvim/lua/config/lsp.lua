@@ -12,7 +12,7 @@ vim.lsp.config("vtsls", {
     complete_function_calls = false,
     typescript = {
       tsserver = {
-        maxTsServerMemory = 6144,
+        maxTsServerMemory = 2048,
         useSeparateSyntaxServer = false,
         useSyntaxServer = "never",
       },
@@ -23,12 +23,12 @@ vim.lsp.config("vtsls", {
       },
     },
     vtsls = {
-      enableMoveToFileCodeAction = true,
+      enableMoveToFileCodeAction = false,
       autoUseWorkspaceTsdk = true,
       experimental = {
         completion = {
-          entriesLimit = 20,
-          enableServerSideFuzzyMatch = true,
+          entriesLimit = 10,
+          enableServerSideFuzzyMatch = false,
         },
       },
       typescript = {
@@ -48,14 +48,13 @@ vim.lsp.config("vtsls", {
 
 vim.lsp.config("eslint", {
   settings = {
-    experimental = {
-      -- If you want to use flat config on >= 8.21, < 9.0
-      -- useFlatConfig = true,
-      -- Or if you want to use eslintrc on 9.*
-      -- useFlatConfig = false,
-    },
     format = false,
     run = "onSave",
+
+    codeAction = {
+      disableRuleComment = { enable = false },
+      showDocumentation = { enable = false }
+    },
   },
 })
 
@@ -104,25 +103,25 @@ vim.lsp.config("gopls", {
       gofumpt = true,
       codelenses = {
         gc_details = false,
-        generate = true,
-        regenerate_cgo = true,
-        run_govulncheck = true,
-        test = true,
-        tidy = true,
-        upgrade_dependency = true,
-        vendor = true,
+        generate = false,
+        regenerate_cgo = false,
+        run_govulncheck = false,
+        test = false,
+        tidy = false,
+        upgrade_dependency = false,
+        vendor = false,
       },
       analyses = {
-        nilness = true,
-        unusedparams = true,
-        unusedwrite = true,
-        useany = true,
+        nilness = false,
+        unusedparams = false,
+        unusedwrite = false,
+        useany = false,
       },
       usePlaceholders = false,
-      completeUnimported = true,
-      staticcheck = true,
+      completeUnimported = false,
+      staticcheck = false,
       directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
-      semanticTokens = true,
+      semanticTokens = false,
     },
   },
 })
@@ -165,11 +164,11 @@ vim.lsp.config("rust_analyzer", {
     },
     cargo = {
       buildScripts = {
-        enable = true,
+        enable = false,
       },
     },
     procMacro = {
-      enable = true,
+      enable = false,
     },
   },
 })
@@ -196,16 +195,13 @@ vim.lsp.config("clangd", {
   },
   cmd = {
     "clangd",
-    "--background-index",
-    "--clang-tidy",
-    "--header-insertion=iwyu",
-    "--completion-style=detailed",
-    "--function-arg-placeholders",
+    "--header-insertion=never",
+    "--completion-style=bundled",
     "--fallback-style=llvm",
   },
   init_options = {
-    usePlaceholders = true,
-    completeUnimported = true,
+    usePlaceholders = false,
+    completeUnimported = false,
     clangdFileStatus = true,
   },
 })
@@ -271,14 +267,41 @@ vim.lsp.config("jdtls", {
 -- })
 
 vim.lsp.config("tsc", {
+  -- tsc is the native Go-based TypeScript 7 server. This is a soft runtime
+  -- limit that makes its GC reclaim memory more aggressively, not a hard cap.
+  cmd_env = {
+    GOMEMLIMIT = "2048MiB",
+  },
+  -- Do not let Neovim request the high-volume features below. Their server
+  -- settings are also disabled, but removing the capabilities blocks requests
+  -- from Neovim and other plugins after the client attaches.
+  on_attach = function(client)
+    client.server_capabilities.codeLensProvider = nil
+    client.server_capabilities.inlayHintProvider = nil
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
   settings = {
     ["js/ts"] = {
+      -- Avoid downloading and indexing inferred @types packages.
+      disableAutomaticTypeAcquisition = true,
       implementationsCodeLens = {
         enabled = false,
       },
       format = { enable = false },
       preferences = {
-        includePackageJsonAutoImports = "off",
+        -- Needed to complete imports from workspace packages in a monorepo.
+        includePackageJsonAutoImports = "auto",
+        includeCompletionsForModuleExports = false,
+        updateImportsOnPaste = "off",
+      },
+      suggest = {
+        -- Keep import completions, but omit the more expensive variants.
+        autoImports = true,
+        completeFunctionCalls = false,
+        completeJSDocs = false,
+        includeAutomaticOptionalChainCompletions = false,
+        classMemberSnippets = { enabled = false },
+        objectLiteralMethodSnippets = { enabled = false },
       },
       inlayHints = {
         enumMemberValues = {
@@ -302,7 +325,7 @@ vim.lsp.config("tsc", {
       },
       referencesCodeLens = {
         enabled = false,
-      }
+      },
     }
   }
 })
@@ -317,8 +340,8 @@ vim.lsp.enable({
   "rust_analyzer",
   "tailwindcss",
   "taplo",
-  -- "tsc",
-  "vtsls",
+  "tsc",
+  -- "vtsls",
   "eslint",
   "lemminx",
   "yamlls",

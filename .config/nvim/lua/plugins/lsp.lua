@@ -9,11 +9,8 @@ return {
       automatic_enable = false,
       ensure_installed = {
         "bashls",
-        "eslint",
         "jsonls",
         "lua_ls",
-        "yamlls",
-        "tsc",
       },
     },
   },
