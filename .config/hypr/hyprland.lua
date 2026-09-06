@@ -2,20 +2,20 @@
 --- MONITORS ---
 ----------------
 hl.monitor({
-  output = "HDMI-A-1",
-  -- mode = "2560x1440@120",
-  mode = "highrr",
+  output = "eDP-1",
+  mode = "1920x1200@144",
+  -- mode = "highrr",
   position = "0x0",
   scale = 1,
 })
-
 hl.monitor({
-  output = "eDP-1",
-  -- mode = "1920x1200@144",
-  mode = "highrr",
-  position = "auto-right",
+  output = "HDMI-A-1",
+  mode = "2560x1440@120",
+  -- mode = "highrr",
+  position = "auto-left",
   scale = 1,
 })
+
 
 
 -----------------
@@ -39,10 +39,9 @@ hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1", default = true })
 hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = "3", monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = "4", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "5", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = "name:gaming", monitor = "HDMI-A-1" })
 
+hl.workspace_rule({ workspace = "5", monitor = "eDP-1", default = true })
 hl.workspace_rule({ workspace = "6", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "7", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "8", monitor = "eDP-1" })
@@ -176,9 +175,9 @@ hl.bind("SUPER + SHIFT + 0", hl.dsp.window.move({ workspace = "name:gaming" }))
 -- Actions
 hl.bind("SUPER + W", hl.dsp.exec_cmd("hyprlauncher"))
 hl.bind("SUPER + CTRL + Q", hl.dsp.exec_cmd("wlogout"))
--- hl.bind("SUPER + PRINT", hl.dsp.exec_cmd("hyprshot -m window -m active"))
-hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m output -m active"))
-hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m region"))
+-- hl.bind("SUPER + PRINT", hl.dsp.exec_cmd([[grim -g "$(hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')"]]))
+hl.bind("PRINT", hl.dsp.exec_cmd("~/scripts/screenshot output"))
+hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("~/scripts/screenshot region"))
 
 -- Fn keys
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("~/scripts/volume up"), { repeating = true, locked = true })

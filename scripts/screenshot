@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Usage: screenshot [output|region]
+case "${1:-output}" in
+    output)
+        output=$(hyprctl monitors -j | jq -er '.[] | select(.focused) | .name')
+        capture_args=(-o "$output")
+        ;;
+    region)
+        geometry=$(slurp) || exit 0
+        [[ -n "$geometry" ]] || exit 0
+        capture_args=(-g "$geometry")
+        ;;
+    *)
+        printf 'Usage: %s [output|region]\n' "$0" >&2
+        exit 1
+        ;;
+esac
+
+screenshot_dir="${GRIM_DEFAULT_DIR:-$HOME/Pictures/Screenshots}"
+screenshot_file="$screenshot_dir/$(date +'%Y-%m-%d_%H-%M-%S_%N').png"
+
+grim "${capture_args[@]}" "$screenshot_file"
+wl-copy --type image/png < "$screenshot_file"
+notify-send -a Screenshot -u low "Screenshot saved in: $screenshot_file"
