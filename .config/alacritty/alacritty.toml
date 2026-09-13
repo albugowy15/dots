@@ -6,6 +6,7 @@ import = ["~/.config/alacritty/vague.toml"]
 decorations_theme_variant = "Dark"
 padding.x = 5
 padding.y = 5
+opacity = 0.95
 
 [font]
 size = 9
