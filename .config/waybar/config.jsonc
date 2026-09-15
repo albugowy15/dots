@@ -21,7 +21,7 @@
     "network",
     "idle_inhibitor",
     "pulseaudio",
-    "power-profiles-daemon",
+    "custom/asus-profile",
     "battery",
     "custom/power"
   ],
@@ -99,16 +99,12 @@
     "tooltip-format": "Devices connected: {num_connections}",
     "on-click": "blueman-manager"
   },
-  "power-profiles-daemon": {
-    "format": "{icon}  {profile}",
-    "tooltip-format": "Power profile: {profile}",
-    "tooltip": true,
-    "format-icons": {
-      "default": "",
-      "performance": "",
-      "balanced": "",
-      "power-saver": ""
-    }
+  "custom/asus-profile": {
+    "exec": "$HOME/.config/waybar/scripts/asus-profile",
+    "return-type": "json",
+    "interval": 5,
+    "on-click": "asusctl profile next",
+    "tooltip": true
   },
   "clock": {
     "format": "{:%d %b %Y - %H:%M}",

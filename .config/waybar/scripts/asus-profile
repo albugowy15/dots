@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+output="$(asusctl profile get 2>/dev/null)"
+profile=""
+
+while IFS= read -r line; do
+  if [[ "$line" == "Active profile: "* ]]; then
+    profile="${line#Active profile: }"
+    break
+  fi
+done <<< "$output"
+
+if [[ -z "$profile" ]]; then
+  printf '{"text":"?  unavailable","tooltip":"asusctl is unavailable","class":"unavailable"}\n'
+  exit 0
+fi
+
+profile="${profile#Active profile: }"
+
+case "${profile,,}" in
+  performance)
+    icon=""
+    class="performance"
+    ;;
+  balanced)
+    icon=""
+    class="balanced"
+    ;;
+  quiet | lowpower | low-power)
+    icon=""
+    class="quiet"
+    ;;
+  custom)
+    icon=""
+    class="custom"
+    ;;
+  *)
+    icon=""
+    class="unknown"
+    ;;
+esac
+
+printf '{"text":"%s  %s","tooltip":"ASUS power profile: %s","class":"%s"}\n' \
+  "$icon" "$profile" "$profile" "$class"
